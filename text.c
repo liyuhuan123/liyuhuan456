@@ -1,63 +1,37 @@
-#include<stdio.h.>
+#include<stdio.h>
 #include<stdlib.h>
-/*void game()
+#include<string.h>//冒泡排序算法练习
+void buble_sort(int arr[4], int size)
 {
-	int tuGuess = rand() % 100 + 1;
-	int input = 0;
-	while (1)
+	int i = 0;
+	int j = 0;
+	int tmp = 0;
+	for (i = 0; i < size; i++)//第一重循环，找size次最小元素
 	{
-		printf("请输入猜的数字\n");
-		scanf("%d", &input);
-		if (input > tuGuess)
+		for (j = 0; j < size; j++)//第二重循环，找到这趟比较中的最小元素
 		{
-			printf("猜大了\n");
-		}
-		else if (input < tuGuess)
-		{
-			printf("猜小了\n");
-		}
-		else
-		{
-			printf("恭喜你猜对了！");
-			break;
+			if (arr[i] < arr[j])
+			{
+				tmp = arr[i];//不符合升序排序，就交换元素
+				arr[i] = arr[j];
+				arr[j] = tmp;
+			}
 
 		}
 	}
 }
 int main()
 {
-	int input = 0;
-	while (1)
+	int i;
+	int arr[4] = { 6, 9, 4, 5 };
+	int size = sizeof(arr) / sizeof(arr[0]);
+	buble_sort(arr, size);//调用冒泡排序函数
+	for (i = 0; i < 4; i++)//打印排序好的有序数组
 	{
-		scanf("%d", &input);
-		switch (input)
-		{
-		case 1:game();
-			break;
-		case 2:
-			break;
-		default:
-			printf("输入有误\n");
-			break;
-		}
-		}*/
-int mian()
-{
-	char arr1[] = "I LOVE YOU!";
-	char arr2[] = "###########";
-	int left = 0;
-	int right = 10;
-	printf("%s\n", arr2);
-	while(left <= right)
-	{
-		Sleep(1000);
-		arr2[left] = arr1[left];
-		arr2[right] = arr1[right];
-		left++;
-		right--;
-		printf("%s\n", arr2);
-	}
+		printf("%d\t", arr[i]);
 
-	system("pause");
+	}
+	printf("\n");
 	return 0;
+	system("pause");
 }
